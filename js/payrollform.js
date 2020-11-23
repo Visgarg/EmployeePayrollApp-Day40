@@ -117,15 +117,15 @@ const getInputElementValue=(id)=>{
 }
 //reset form
 const resetForm=()=>{
-    setTextValue('#name','');
+    setValue('#name','');
     unsetSelectedValues('[name=profile]');
     unsetSelectedValues('[name=gender]');
     unsetSelectedValues('[name=department]');
-    setTextValue('#salary','');
-    setTextValue('#notes','');
-    setTextValue('#day',1);
-    setTextValue('#month','January');
-    setTextValue('#year','2020');
+    setValue('#salary','');
+    setValue('#notes','');
+    setValue('#day',1);
+    setValue('#month','January');
+    setValue('#year','2020');
 }
 const unsetSelectedValues= (propertyValue)=>{
     let allItems= document.querySelectorAll(propertyValue);
@@ -137,4 +137,9 @@ const setTextValue=(id,value)=>
 {
     const element= document.querySelector(id);
     element.textContent=value;
+}
+const setValue=(id,value)=>
+{
+    const element= document.querySelector(id);
+    element.value=value;
 }
