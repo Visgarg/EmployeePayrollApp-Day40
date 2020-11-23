@@ -7,8 +7,10 @@ const createInnerHtml=()=>
 {
     const headerHtml= "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th></tr>"
     //using template literal
-    let empPayrollData= createEmployeePayrollJSON()[1];
-    const innerHTML= `${headerHtml}
+    let innerHtml= `${headerHtml}`;
+    let empPayrollList= createEmployeePayrollJSON();
+    for(const empPayrollData of empPayrollList){
+    innerHtml= `${innerHtml}
     <tr>
           <td><img class="profile" alt="" src="${empPayrollData._profilePic}"></td>
           <td>${empPayrollData._name}</td>
@@ -20,6 +22,7 @@ const createInnerHtml=()=>
           <td><img id="${empPayrollData._id}" onclick= "remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
             <img id="${empPayrollData.id}" onclick= "update(this)" alt="edit" src="../assets/icons/create-black-18dp.svg"></td>
     </tr>`;
+    }
     document.querySelector('#table-display').innerHTML=innerHTML;
 }
 
